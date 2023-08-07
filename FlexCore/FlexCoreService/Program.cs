@@ -1,6 +1,8 @@
 using EFModels.Models;
 using FlexCoreService.ActivityCtrl.Infra.DPRepository;
 using FlexCoreService.ActivityCtrl.Interface;
+using FlexCoreService.CustomeShoes.Infra.DPRepository;
+using FlexCoreService.CustomeShoes.Interface;
 using FlexCoreService.ProductCtrl.Infra.DPRepository;
 using FlexCoreService.ProductCtrl.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -34,10 +36,11 @@ namespace FlexCoreService
             //DIª`¤JDapper
             builder.Services.AddScoped<IProductRepository, ProductDPRepository>();
             builder.Services.AddScoped<ICategoryRepository, CategoryDPRepository>();
-            builder.Services.AddScoped<IActivityDPRepository, ActivityDPRepository>();
+            builder.Services.AddScoped< ActivityDPRepository >();
+			builder.Services.AddScoped<ICustomeShoesRepository, CustomeShoesDPRepository>();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
+			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+			builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
